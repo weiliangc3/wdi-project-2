@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :attendances
   has_many :weddings, through: :attendances
+
+  has_many :wishes
 end
