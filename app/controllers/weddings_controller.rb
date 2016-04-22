@@ -19,5 +19,9 @@ class WeddingsController < ApplicationController
 
   def update
   end
-  
+
+  def wedding_params
+    params.require(:wedding).permit(:name,:wedding_image, :description)
+  end
+
 end
