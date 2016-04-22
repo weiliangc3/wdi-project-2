@@ -3,6 +3,8 @@ ruby "2.2.3"
 
 gem 'devise',           '~> 3.5.2'
 gem 'devise_invitable', '~> 1.5.2'
+gem 'foundation-rails', '~> 5.5.3'
+gem 'carrierwave', '0.10.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
