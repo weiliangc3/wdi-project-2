@@ -1,5 +1,10 @@
 class WeddingsController < ApplicationController
   def index
+    @my_attendances = current_user.attendances.where(role: "couple", status: "confirmed")
+    @admin_attendances = current_user.attendances.where(role: "admin", status: "confirmed")
+    @guest_attendances = current_user.attendances.where(role: "guest", status: "confirmed")
+    @unconfirmed_attendances = current_user.attendances.where(status: "unconfirmed")
+
     @weddings = Wedding.all
   end
 

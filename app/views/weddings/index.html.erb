@@ -1,5 +1,39 @@
 <h1>Weddings#index</h1>
 
+<% @my_attendances.each do |a| %>
+  <ul>
+    <li>My Wedding</li>
+    <li><%= a.wedding.name %></li>
+    <li><%= a.wedding.wedding_image %></li>
+    <li><%= a.wedding.description %></li>
+  </ul>
+<% end %>
+<% @admin_attendances.each do |a| %>
+  <ul>
+    <li>Admin Weddings</li>
+    <li><%= a.wedding.name %></li>
+    <li><%= a.wedding.wedding_image %></li>
+    <li><%= a.wedding.description %></li>
+  </ul>
+<% end %>
+<% @guest_attendances.each do |a| %>
+  <ul>
+    <li>Guest Wedding</li>
+    <li><%= a.wedding.name %></li>
+    <li><%= a.wedding.wedding_image %></li>
+    <li><%= a.wedding.description %></li>
+  </ul>
+<% end %>
+<% @unconfirmed_attendances.each do |a| %>
+  <ul>
+    <li>Unconfirmed Wedding</li>
+    <li><%= a.wedding.name %></li>
+    <li><%= a.wedding.wedding_image %></li>
+    <li><%= a.wedding.description %></li>
+  </ul>
+<% end %>
+
+
 <ul>
   <%= render @weddings %>
 </ul>
