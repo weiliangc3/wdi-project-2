@@ -1,2 +1,47 @@
-<h1>Weddings#show</h1>
-<p>Find me in app/views/weddings/show.html.erb</p>
+<h1><%= @wedding.name %></h1>
+
+<ul>
+  <li><%= link_to "Edit wedding details", edit_wedding_path(@wedding)%></li>
+  <li><%= link_to "Manage Guests", wedding_attendances_path(@wedding) %></li>
+</ul>
+
+<div>
+  <%= link_to "Add a wish", new_wedding_wish_path(@wedding) %>
+</div>
+
+<% @your_claimed_wishes.each do |wish| %>
+  <div>
+    <h3>You claimed: <%= wish.name %></h3>
+    <ul>
+      <li><%= wish.details %></li>
+      <li><%= wish.image %></li>
+      <% if @wedding.attendances.find_by(user_id: current_user.id).role = "couple" || @wedding.attendances.find_by(user_id: current_user.id).role = "admin" %>
+      <li>Delete Wish</li>
+      <% end %>
+      <li>Make Unclaim Wish Modal</li>
+    </ul>
+  </div>
+<% end %>
+
+<% @unclaimed_wishes.each do |wish| %>
+  <div>
+    <h3>Unclaimed: <%= wish.name %></h3>
+    <ul>
+      <li><%= wish.details %></li>
+      <li><%= wish.image %></li>
+      <% if @wedding.attendances.find_by(user_id: current_user.id).role = "couple" || @wedding.attendances.find_by(user_id: current_user.id).role = "admin" %>
+      <li>Delete Wish</li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% @claimed_wishes.each do |wish| %>
+  <div>
+    <h3>Claimed: <%= wish.name %></h3>
+    <ul>
+      <li><%= wish.details %></li>
+      <li><%= wish.image %></li>
+    </ul>
+  </div>
+<% end %>

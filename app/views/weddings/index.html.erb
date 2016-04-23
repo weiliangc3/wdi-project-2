@@ -3,7 +3,7 @@
 <% @my_attendances.each do |a| %>
   <ul>
     <li>My Wedding</li>
-    <li><%= a.wedding.name %></li>
+    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
     <li><%= a.wedding.wedding_image %></li>
     <li><%= a.wedding.description %></li>
   </ul>
@@ -11,7 +11,7 @@
 <% @admin_attendances.each do |a| %>
   <ul>
     <li>Admin Weddings</li>
-    <li><%= a.wedding.name %></li>
+    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
     <li><%= a.wedding.wedding_image %></li>
     <li><%= a.wedding.description %></li>
   </ul>
@@ -19,7 +19,7 @@
 <% @guest_attendances.each do |a| %>
   <ul>
     <li>Guest Wedding</li>
-    <li><%= a.wedding.name %></li>
+    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
     <li><%= a.wedding.wedding_image %></li>
     <li><%= a.wedding.description %></li>
   </ul>
@@ -27,13 +27,18 @@
 <% @unconfirmed_attendances.each do |a| %>
   <ul>
     <li>Unconfirmed Wedding</li>
-    <li><%= a.wedding.name %></li>
+    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
     <li><%= a.wedding.wedding_image %></li>
     <li><%= a.wedding.description %></li>
   </ul>
 <% end %>
 
+<ul>
+  <li>Organising a Wedding?</li>
+  <li><%= link_to "Click here to register your wedding", new_wedding_path %></li>
+</ul>
 
+<h2>Wedding List</h2>
 <ul>
   <%= render @weddings %>
 </ul>
