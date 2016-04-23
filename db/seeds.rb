@@ -101,3 +101,18 @@ wi3 = Wish.create!( name: "Duvet",
 wi4 = Wish.create!( name: "Guitar",
                 details: "I really want a guitar. Fender acoustic please",
                 wedding_id: w2.id)
+
+wi5 = Wish.create!( name: "Chair",
+                details: "I really want a chair. Comfy please",
+                wedding_id: w1.id,
+                user_id: u1)
+
+wi6 = Wish.create!( name: "Meme",
+                details: "I really want a meme. Gooby please",
+                wedding_id: w1.id
+                user_id: u6.id)
+
+wi7 = Wish.create!( name: "Rice",
+                details: "I really want rice. Yangzhou fried rice please",
+                wedding_id: w1.id
+                user_id: u6.id)
