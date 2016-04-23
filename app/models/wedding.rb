@@ -8,4 +8,10 @@ class Wedding < ActiveRecord::Base
 
   has_many :wishes
 
+  # before_validation :add_default_location
+
+  # private
+  #  def add_default_location
+  #   self.location = "London, United Kingdom" if self.location.nil?
+  #  end
 end

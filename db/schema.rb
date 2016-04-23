@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(version: 20160422153158) do
     t.string   "name"
     t.string   "hero_image"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "image"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "wedding_image"
   end
 
   create_table "wishes", force: :cascade do |t|
