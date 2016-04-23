@@ -24,16 +24,6 @@ ActiveRecord::Schema.define(version: 20160422153158) do
     t.string  "email"
   end
 
-  create_table "identities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -48,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160422153158) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "image"
@@ -88,5 +79,4 @@ ActiveRecord::Schema.define(version: 20160422153158) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "identities", "users"
 end
