@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
     resources :attendances, except: [:edit, :show]
   end
-  devise_for :users
+  devise_for :users, :controllers => { :invitations => 'users/invitations' }
   root 'statics#home'
 end
