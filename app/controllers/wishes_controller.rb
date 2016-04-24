@@ -3,6 +3,7 @@ class WishesController < ApplicationController
 
   def new
     @wedding = Wedding.find(params[:wedding_id])
+    check_admin!
     @wish = Wish.new
     @wish_path = new_wedding_wish_path(params[:wedding_id])
   end
@@ -19,11 +20,15 @@ class WishesController < ApplicationController
   end
 
   def edit
+    @wedding = Wedding.find(params[:wedding_id])
+    check_admin!
     @wish = Wish.find(params[:id])
     @wish_path = wedding_wish_path(params[:wedding_id], params[:id])
   end
 
   def update
+    @wedding = Wedding.find(params[:wedding_id])
+    check_admin!
     wish = Wish.find(params[:id])
     if wish.update(wish_params)
       flash[:success] = "Wish details updated!"
@@ -35,6 +40,8 @@ class WishesController < ApplicationController
   end
 
   def destroy
+    @wedding = Wedding.find(params[:wedding_id])
+    check_admin!
     @wish = Wish.find(params[:id])
     @wish.destroy
     flash[:success] = "Wish removed!"
@@ -66,5 +73,18 @@ class WishesController < ApplicationController
   private
     def wish_params
       params.require(:wish).permit(:name, :image, :details, :user_id, :wedding_id)
+    end
+
+    def admin_status?
+      !(@wedding.attendances.find_by(user_id: current_user.id).role == "guest")
+    end
+
+    def check_admin!
+      if admin_status?
+        true
+      else
+        flash[:error] = "You don't have priviledges to manage this wedding"
+        redirect_to(:back)
+      end
     end
 end

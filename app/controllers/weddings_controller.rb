@@ -6,7 +6,6 @@ class WeddingsController < ApplicationController
     @admin_attendances = current_user.attendances.where(role: "admin", status: "confirmed")
     @guest_attendances = current_user.attendances.where(role: "guest", status: "confirmed")
     @unconfirmed_attendances = current_user.attendances.where(status: "unconfirmed")
-
     @weddings = Wedding.all
   end
 
@@ -16,6 +15,7 @@ class WeddingsController < ApplicationController
     @your_claimed_wishes = Wish.where(wedding_id: params[:id], user_id: current_user.id)
     @unclaimed_wishes = Wish.where(wedding_id: params[:id], user_id: nil)
     @claimed_wishes = Wish.where(wedding_id: params[:id]).where.not(user_id: nil, user_id: current_user.id)
+    session[:current_wedding] = params[:id]
   end
 
   def new
@@ -36,19 +36,21 @@ class WeddingsController < ApplicationController
 
   def edit
     @wedding = Wedding.find(params[:id])
+    check_admin!
   end
 
   def destroy
-    wedding = Wedding.find(params[:id])
-    wedding.destroy
+    @wedding = Wedding.find(params[:id])
+    @wedding.destroy
     flash[:success] = "Wedding deleted"
     redirect_to weddings_path
+    check_admin!
   end
 
   def update
-    wedding = Wedding.find(params[:id])
-    wedding.update(wedding_params)
-    if wedding.update(wedding_params)
+    @wedding = Wedding.find(params[:id])
+    check_admin!
+    if @wedding.update(wedding_params)
       flash[:success] = "Wedding details updated!"
       redirect_to wedding_path(wedding)
     else
@@ -59,6 +61,19 @@ class WeddingsController < ApplicationController
 
   def wedding_params
     params.require(:wedding).permit(:name, :wedding_image, :description)
+  end
+
+  def admin_status?
+    !(@wedding.attendances.find_by(user_id: current_user.id).role == "guest")
+  end
+
+  def check_admin!
+    if admin_status?
+      true
+    else
+      flash[:error] = "You don't have priviledges to manage this wedding"
+      redirect_to(:back)
+    end
   end
 
 end

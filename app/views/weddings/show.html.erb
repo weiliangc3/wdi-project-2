@@ -1,5 +1,6 @@
 <h1><%= @wedding.name %></h1>
 
+<% if admin_status? %>
 <ul>
   <li><%= link_to "Edit wedding details", edit_wedding_path(@wedding)%></li>
   <li><%= link_to "Manage Guests", wedding_attendances_path(@wedding) %></li>
@@ -8,6 +9,7 @@
 <div>
   <%= link_to "Add a wish", new_wedding_wish_path(@wedding) %>
 </div>
+<% end %>
 
 <% @your_claimed_wishes.each do |wish| %>
   <div>
