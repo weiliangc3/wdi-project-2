@@ -14,6 +14,11 @@ class AttendancesController < ApplicationController
     redirect_to wedding_attendances_path(params[:wedding_id])
   end
 
-  def update
+  def confirm
+    @wedding = Wedding.find(params[:wedding_id])
+    @attendance = Attendance.find(params[:id])
+    @attendance.update(status: "confirmed")
+    flash[:success] = "Attendance confirmed!"
+    redirect_to wedding_path(@wedding.id)
   end
 end

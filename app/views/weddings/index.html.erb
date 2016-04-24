@@ -30,6 +30,7 @@
     <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
     <li><%= a.wedding.wedding_image %></li>
     <li><%= a.wedding.description %></li>
+    <li><%= link_to "Confirm Attendance", confirm_wedding_attendance_path(a.wedding.id, a.id), method: :patch %></li>
   </ul>
 <% end %>
 

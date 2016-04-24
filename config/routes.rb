@@ -9,7 +9,11 @@ Rails.application.routes.draw do
         patch :unclaim
       end
     end
-    resources :attendances, except: [:edit, :show]
+    resources :attendances, except: [:edit, :show] do
+      member do
+        patch :confirm
+      end
+    end
   end
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
   root 'statics#home'

@@ -8,8 +8,12 @@
   <%= f.text_field field %></p>
 <% end -%>
 
-<p>  <br />
-  
+<p>Role: <br />
+  <select name="attendance[role]">
+    <option value="guest">Guest</option>
+    <option value="couple">Couple</option>
+    <option value="admin">Admin</option>
+  </select>
 </p>
 
   <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
