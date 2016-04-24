@@ -1,14 +1,35 @@
 class WishesController < ApplicationController
   def new
+    @wedding = Wedding.find(params[:wedding_id])
+    @wish = Wish.new
+    @wish_path = new_wedding_wish_path(params[:wedding_id])
   end
 
   def create
+    wish = Wish.new(wish_params)
+    if wish.save
+      flash[:success] = "Wish created!"
+      redirect_to wedding_path(wish.wedding_id)
+    else
+      flash[:error]   = "Wish creation failed"
+      redirect_to :back
+    end
   end
 
   def edit
+    @wish = Wish.find(params[:id])
+    @wish_path = wedding_wish_path(params[:wedding_id], params[:id])
   end
 
   def update
+    wish = Wish.find(params[:id])
+    if wish.update(wish_params)
+      flash[:success] = "Wish details updated!"
+      redirect_to :back
+    else
+      flash[:error]   = "Wish edit failed"
+      redirect_to :back
+    end
   end
 
   def delete
@@ -20,8 +41,7 @@ class WishesController < ApplicationController
 
   def claim
     wish = Wish.find(params[:id])
-    wish.user_id = current_user.id
-    if wish.save!
+    if wish.update(user_id: current_user.id)
       flash[:success] = "Wish claimed!"
       redirect_to wedding_path(params[:wedding_id])
     else
@@ -32,8 +52,7 @@ class WishesController < ApplicationController
 
   def unclaim
     wish = Wish.find(params[:id])
-    wish.user_id = nil
-    if wish.save!
+    if wish.update(user_id: nil)
       flash[:success] = "Unclaim successful"
       redirect_to wedding_path(params[:wedding_id])
     else
@@ -44,6 +63,6 @@ class WishesController < ApplicationController
 
   private
     def wish_params
-      params.require(:wish).permit(:name, :image, :details, :user_id)
+      params.require(:wish).permit(:name, :image, :details, :user_id, :wedding_id)
     end
 end

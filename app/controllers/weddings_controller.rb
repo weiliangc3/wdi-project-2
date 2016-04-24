@@ -21,6 +21,15 @@ class WeddingsController < ApplicationController
   end
 
   def create
+    wedding = Wedding.new(wedding_params)
+    Attendance.create!(role: "admin", user_id: current_user.id, status: "confirmed", email: current_user.email, wedding_id: wedding.id)
+    if wedding.save
+      flash[:success] = "Wedding created!"
+      redirect_to wedding_path(wedding)
+    else
+      flash[:error]   = "Wedding creation failed"
+      redirect_to new_wedding_path
+    end
   end
 
   def edit
@@ -28,13 +37,26 @@ class WeddingsController < ApplicationController
   end
 
   def delete
+    wedding = Wedding.find(params[:id])
+    wedding.destroy
+    flash[:success] = "Wedding deleted"
+    redirect_to weddings_path
   end
 
   def update
+    wedding = Wedding.find(params[:id])
+    wedding.update(wedding_params)
+    if wedding.update(wedding_params)
+      flash[:success] = "Wedding details updated!"
+      redirect_to wedding_path(wedding)
+    else
+      flash[:error]   = "Wedding edit failed"
+      redirect_to edit_wedding_path(wedding)
+    end
   end
 
   def wedding_params
-    params.require(:wedding).permit(:name,:wedding_image, :description)
+    params.require(:wedding).permit(:name, :wedding_image, :description)
   end
 
 end
