@@ -3,10 +3,10 @@ class Wedding < ActiveRecord::Base
   mount_uploader :wedding_image, WeddingImageUploader
 
 
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
   has_many :users, through: :attendances
 
-  has_many :wishes
+  has_many :wishes, dependent: :destroy
 
   # before_validation :add_default_location
 

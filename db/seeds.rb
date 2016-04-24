@@ -82,7 +82,7 @@ a5 = Attendance.create!(role: "couple",
                     wedding_id: w1.id)
 
 a6 = Attendance.create!(role: "guest",
-                    status: "pending",
+                    status: "unconfirmed",
                     email: "john@john.com",
                     wedding_id: w1.id)
 
@@ -109,10 +109,10 @@ wi5 = Wish.create!( name: "Chair",
 
 wi6 = Wish.create!( name: "Meme",
                 details: "I really want a meme. Gooby please",
-                wedding_id: w1.id
+                wedding_id: w1.id,
                 user_id: u6.id)
 
 wi7 = Wish.create!( name: "Rice",
                 details: "I really want rice. Yangzhou fried rice please",
-                wedding_id: w1.id
+                wedding_id: w1.id,
                 user_id: u6.id)

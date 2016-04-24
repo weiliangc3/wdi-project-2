@@ -1,4 +1,6 @@
 class WeddingsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @my_attendances = current_user.attendances.where(role: "couple", status: "confirmed")
     @admin_attendances = current_user.attendances.where(role: "admin", status: "confirmed")
@@ -36,7 +38,7 @@ class WeddingsController < ApplicationController
     @wedding = Wedding.find(params[:id])
   end
 
-  def delete
+  def destroy
     wedding = Wedding.find(params[:id])
     wedding.destroy
     flash[:success] = "Wedding deleted"

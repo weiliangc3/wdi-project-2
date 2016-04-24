@@ -1,7 +1,18 @@
 <li>
   <ul>
-    <li>Email: <%= attendances.email %></li>
+  <% if attendance.user_id %>
+    <li>Name: <%= attendance.user.first_name %> <%= attendance.user.last_name%></li>
+    <li>Image: <%= attendance.user.image %></li>
+    <li>Email: <%= attendance.email %></li>
     <li>Status: <%= attendance.status %></li>
     <li>Wedding: <%= attendance.wedding.name %></li>
+  <% else %>
+    <li>Email: <%= attendance.email %></li>
+    <li>Status: <%= attendance.status %></li>
+    <li>Wedding: <%= attendance.wedding.name %></li>
+  <% end %>
+  <% if admin_status? %>
+    <li><%= link_to "Uninvite", wedding_attendance_path(@wedding, attendance.id) , method: :delete %></li>
+    <% end %>
   </ul>
 </li>

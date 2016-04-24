@@ -15,7 +15,7 @@
     <ul>
       <li><%= wish.details %></li>
       <li><%= wish.image %></li>
-      <% if @wedding.attendances.find_by(user_id: current_user.id).role = "couple" || @wedding.attendances.find_by(user_id: current_user.id).role = "admin" %>
+      <% if admin_status? %>
       <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
       <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
       <% end %>
@@ -43,7 +43,7 @@
     <ul>
       <li><%= wish.details %></li>
       <li><%= wish.image %></li>
-      <% if @wedding.attendances.find_by(user_id: current_user.id).role = "couple" || @wedding.attendances.find_by(user_id: current_user.id).role = "admin" %>
+      <% if admin_status? %>
       <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
       <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
       <% end %>
@@ -71,7 +71,7 @@
     <ul>
       <li><%= wish.details %></li>
       <li><%= wish.image %></li>
-      <% if @wedding.attendances.find_by(user_id: current_user.id).role = "couple" || @wedding.attendances.find_by(user_id: current_user.id).role = "admin" %>
+      <% if admin_status? %>
       <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
       <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
       <% end %>

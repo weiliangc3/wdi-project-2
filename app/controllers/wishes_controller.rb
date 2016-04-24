@@ -1,4 +1,6 @@
 class WishesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @wedding = Wedding.find(params[:wedding_id])
     @wish = Wish.new
@@ -32,7 +34,7 @@ class WishesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @wish = Wish.find(params[:id])
     @wish.destroy
     flash[:success] = "Wish removed!"
