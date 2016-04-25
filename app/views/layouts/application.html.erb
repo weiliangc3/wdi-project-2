@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <title>WeiDing Gifts</title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
@@ -16,9 +16,7 @@
   <%= render "header" %>
   <%= render "flash_messages" %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <%= yield %>
-
+  <%= render "footer" %>
 </body>
 </html>
