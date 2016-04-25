@@ -4,7 +4,9 @@ class AttendancesController < ApplicationController
   def index
     @wedding = Wedding.find(params[:wedding_id])
     check_admin!
-    @attendances = Attendance.where(wedding_id: params[:wedding_id]).order(status: :asc, email: :asc)
+    @q = Attendance.search(params[:q])
+    @attendance_unfiltered = @q.result(distinct: true)
+    @attendances = @attendance_unfiltered.where(wedding_id: params[:wedding_id]).order(status: :asc, email: :asc)
     session[:current_wedding] = params[:wedding_id]
   end
   
