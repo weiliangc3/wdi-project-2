@@ -1,5 +1,13 @@
 <h1><%= @wedding.name %></h1>
 
+<div>
+<h2>Wedding Image</h2>
+<%= image_tag @wedding.wedding_image.url %>
+
+</div>
+
+
+
 <% if admin_status? %>
 <ul>
   <li><%= link_to "Edit wedding details", edit_wedding_path(@wedding)%></li>

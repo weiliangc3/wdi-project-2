@@ -9,15 +9,12 @@
         <h1 class="title">WeiDing Gifts</h1>
       </section>
 
-      <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
     </nav>
 
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li><label>Wedding</label></li>
         <% if user_signed_in? %>
+        <li><label>Wedding</label></li>
         <% if session[:current_wedding] %>
         <% current_wedding = Wedding.find(session[:current_wedding]) %>
         <li><%= link_to current_wedding.name, wedding_path(session[:current_wedding]) %></li>
@@ -26,8 +23,9 @@
         <% else %>
 
         <% end %>
-        <li><label>User Options</label></li>
+
         <% if user_signed_in? %>
+        <li><label>User Options</label></li>
         <li><%= link_to "Weddings List", weddings_path %></li>
 
           <li class="has-dropdown">

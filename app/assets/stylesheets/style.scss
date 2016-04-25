@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Fanwood';
+  src: url(font-path('Fanwood.otf'))
+}
+@font-face {
+  font-family: 'LindenHill';
+  src: url(font-path('LindenHill.otf'))
+}
+
+
+body{
+  
+  div.background-flower{
+    background: image-url('stock10.jpg');
+    height: 500px;
+    width:500px;
+
+    z-index: -102;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+  main{
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+
+    section.main-section{
+      min-height: 600px;
+    }
+
+    div.parallax-window{
+      min-height: 150px;
+      div.image-cover{
+        background-color: rgba(255, 255, 255, 0.5);
+        h2{
+          font-size: 50px; 
+          font-family: 'Cinzel';
+        }    
+      }
+      form.new_user {
+        margin-left: auto;
+        margin-right: 20px;
+        text-align: right;
+        width: 30%;
+        min-width: 200px;
+      }
+      div.devise-links{
+        margin-left: auto;
+        margin-right: 20px;
+        text-align: right;
+      }
+    }
+
+  }
+}

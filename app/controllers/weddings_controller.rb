@@ -52,10 +52,10 @@ class WeddingsController < ApplicationController
     check_admin!
     if @wedding.update(wedding_params)
       flash[:success] = "Wedding details updated!"
-      redirect_to wedding_path(wedding)
+      redirect_to wedding_path(@wedding)
     else
       flash[:error]   = "Wedding edit failed"
-      redirect_to edit_wedding_path(wedding)
+      redirect_to edit_wedding_path(@wedding)
     end
   end
 
