@@ -1,13 +1,7 @@
+
+<div class="parallax-window" data-parallax="scroll" data-image-src= "<%= @wedding.wedding_image.url %>">
+<div class="image-cover">
 <h1><%= @wedding.name %></h1>
-
-<div>
-<h2>Wedding Image</h2>
-<%= image_tag @wedding.wedding_image.url %>
-
-</div>
-
-
-
 <% if admin_status? %>
 <ul>
   <li><%= link_to "Edit wedding details", edit_wedding_path(@wedding)%></li>
@@ -18,13 +12,19 @@
   <%= link_to "Add a wish", new_wedding_wish_path(@wedding) %>
 </div>
 <% end %>
+</div>
+</div>
+
+
+
+
 
 <% @your_claimed_wishes.each do |wish| %>
   <div>
     <h3>You claimed: <%= wish.name %></h3>
     <ul>
       <li><%= wish.details %></li>
-      <li><%= wish.image %></li>
+      <li><%= image_tag wish.image.url %></li>
       <% if admin_status? %>
       <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
       <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
@@ -52,7 +52,7 @@
     <h3>Unclaimed: <%= wish.name %></h3>
     <ul>
       <li><%= wish.details %></li>
-      <li><%= wish.image %></li>
+      <li><%= image_tag wish.image.url %></li>
       <% if admin_status? %>
       <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
       <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
@@ -80,7 +80,7 @@
     <h3>Claimed: <%= wish.name %></h3>
     <ul>
       <li><%= wish.details %></li>
-      <li><%= wish.image %></li>
+      <li><%= image_tag wish.image.url %></li>
       <% if admin_status? %>
       <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
       <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>

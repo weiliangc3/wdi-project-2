@@ -9,12 +9,11 @@
 
 
 body{
-  
+  min-height: 600px;
   div.background-flower{
     background: image-url('stock10.jpg');
     height: 500px;
     width:500px;
-
     z-index: -102;
     position: fixed;
     bottom: 0;
@@ -33,6 +32,7 @@ body{
       min-height: 150px;
       div.image-cover{
         background-color: rgba(255, 255, 255, 0.5);
+        min-height: 150px;
         h2{
           font-size: 50px; 
           font-family: 'Cinzel';
