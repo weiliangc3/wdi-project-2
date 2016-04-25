@@ -1,7 +1,5 @@
-<div>
-  <% flash.each do |name, message| %>
-    <div role="alert">
+<% flash.each do |name, message| %>
+    <div class= "panel callout">
       <%= message %>
     </div>
   <% end %>
-</div>

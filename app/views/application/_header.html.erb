@@ -1,6 +1,7 @@
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
-    <nav class="tab-bar">
+
+    <nav class="tab-bar top-bar">
       <section class="left-small">
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
       </section>
@@ -14,33 +15,24 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <% if user_signed_in? %>
-        <li><label>Wedding</label></li>
+
         <% if session[:current_wedding] %>
+        <li><label>Current Wedding</label></li>
         <% current_wedding = Wedding.find(session[:current_wedding]) %>
         <li><%= link_to current_wedding.name, wedding_path(session[:current_wedding]) %></li>
         <% end %>
 
-        <% else %>
-
-        <% end %>
-
-        <% if user_signed_in? %>
-        <li><label>User Options</label></li>
+        <li><label><%= current_user.email %></label></li>
         <li><%= link_to "Weddings List", weddings_path %></li>
+        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </li>
+      <% else %>
+      <li><%= link_to "Login", new_user_session_path %></li>
+      <li><%= link_to "Register",new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </aside>
 
-          <li class="has-dropdown">
-            <a><%= current_user.email %></a>
-            <ul class="dropdown">
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
-          <% else %>
-          <li><%= link_to "Home/Login", new_user_session_path %></li>
-          <li><%= link_to "Register",new_user_registration_path %></li>
-          <% end %>
-      </ul>
-    </aside>
-
-    <section class="main-section">
+  <section class="main-section">
 

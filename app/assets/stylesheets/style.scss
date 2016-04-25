@@ -6,14 +6,19 @@
   font-family: 'LindenHill';
   src: url(font-path('LindenHill.otf'))
 }
-
+// <link href='https://fonts.googleapis.com/css?family=Playfair+Display|Libre+Baskerville|Cinzel|Josefin+Slab|Open+Sans|Lato|Montserrat' rel='stylesheet' type='text/css'>
+h1{
+  font-family: 'Cinzel', 'Josefin Slab', 'Montserrat', Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 400;
+}
 
 body{
   min-height: 600px;
   div.background-flower{
     background: image-url('stock10.jpg');
-    height: 500px;
-    width:500px;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 300px;
     z-index: -102;
     position: fixed;
     bottom: 0;
@@ -27,6 +32,14 @@ body{
     section.main-section{
       min-height: 600px;
     }
+    form.new_user {
+      margin-left: auto;
+      margin-right: 20px;
+      text-align: right;
+      width: 30%;
+      min-width: 200px;
+      background-color: rgba(white, 0.5);
+    }
 
     div.parallax-window{
       min-height: 150px;
@@ -34,16 +47,13 @@ body{
         background-color: rgba(255, 255, 255, 0.5);
         min-height: 150px;
         h2{
+          margin-top: 0;
           font-size: 50px; 
           font-family: 'Cinzel';
         }    
       }
       form.new_user {
-        margin-left: auto;
-        margin-right: 20px;
-        text-align: right;
-        width: 30%;
-        min-width: 200px;
+        background-color: rgba(white, 0);
       }
       div.devise-links{
         margin-left: auto;
@@ -52,7 +62,8 @@ body{
       }
     }
 
+    label{
+      font-size: 15px;
+    }
   }
 }
-
-
