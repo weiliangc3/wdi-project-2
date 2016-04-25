@@ -6,6 +6,7 @@ gem 'devise_invitable', '~> 1.5.2'
 gem 'foundation-rails', '~> 5.5.3'
 gem 'carrierwave', '0.10.0'
 gem 'rmagick'
+gem 'ransack'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

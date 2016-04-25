@@ -1,4 +1,3 @@
-
 <div class="parallax-window" data-parallax="scroll" data-image-src= "<%= @wedding.wedding_image.url %>">
 <div class="image-cover">
 <h1><%= @wedding.name %></h1>
@@ -15,7 +14,15 @@
 </div>
 </div>
 
-
+<%= search_form_for @q, url: wedding_path(@wedding) do |f| %>
+  <p>
+    <%= f.label :name_cont %>
+    <%= f.text_field :name_cont %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 
 

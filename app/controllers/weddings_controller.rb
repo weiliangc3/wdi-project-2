@@ -12,9 +12,12 @@ class WeddingsController < ApplicationController
   def show
     @wedding = Wedding.find(params[:id])
 
-    @your_claimed_wishes = Wish.where(wedding_id: params[:id], user_id: current_user.id)
-    @unclaimed_wishes = Wish.where(wedding_id: params[:id], user_id: nil)
-    @claimed_wishes = Wish.where(wedding_id: params[:id]).where.not(user_id: nil, user_id: current_user.id)
+    @q = Wish.search(params[:q])
+    @wishes = @q.result(distinct: true)
+
+    @your_claimed_wishes = @wishes.where(wedding_id: params[:id], user_id: current_user.id).order(:name)
+    @unclaimed_wishes = @wishes.where(wedding_id: params[:id], user_id: nil).order(:name)
+    @claimed_wishes = @wishes.where(wedding_id: params[:id]).where.not(user_id: nil, user_id: current_user.id).order(:name)
     session[:current_wedding] = params[:id]
   end
 
