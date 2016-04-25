@@ -1,45 +1,45 @@
-<div class="parallax-window" data-parallax="scroll" data-image-src="<%= asset_path '/images/stock18.jpeg' %>">
+<h1>WeiDing Gifts</h2>
+
+<div class="parallax-window" data-parallax="scroll" data-image-src="<%= asset_path '/images/stockflower2.jpeg' %>">
   <div class="image-cover">
-    <h2>WeiDing Gifts</h2>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
 
+<div class="field">
+  <%= f.label :password %><br />
+  <%= f.password_field :password, autocomplete: "off" %>
+</div>
 
+<% if devise_mapping.rememberable? -%>
+<div class="field">
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+</div>
+<% end -%>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+<div class="actions">
+  <%= f.submit "Log in", class: "button small radius" %>
+</div>
+<% end %>
+<div class="devise-links">
+  <%= render "devise/shared/links" %>
+</div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-    <% end -%>
-
-    <div class="actions">
-      <%= f.submit "Log in", class: "button small radius" %>
-    </div>
-    <% end %>
-    <div class="devise-links">
-      <%= render "devise/shared/links" %>
-    </div>
   </div>
 </div>
 
+
 <div>
-Create your wedding, invite your friends, and manage your wedding favours here!
-<p>CONTENT</p>
-<p>CONTENT</p>
-<p>CONTENT</p>
-<p>CONTENT</p>
-<p>CONTENT</p>
-<p>CONTENT</p>
-<p>CONTENT</p>
-<p>CONTENT</p>
+  Create your wedding, invite your friends, and manage your wedding favours here!
+  <p>CONTENT</p>
+  <p>CONTENT</p>
+  <p>CONTENT</p>
+  <p>CONTENT</p>
+  <p>CONTENT</p>
+  <p>CONTENT</p>
+  <p>CONTENT</p>
+  <p>CONTENT</p>
 </div>
