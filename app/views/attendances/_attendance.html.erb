@@ -1,18 +1,16 @@
-<li>
-  <ul>
-  <% if attendance.user_id %>
-    <li>Name: <%= attendance.user.first_name %> <%= attendance.user.last_name%></li>
-    <li>Image: <%= attendance.user.image %></li>
-    <li>Email: <%= attendance.email %></li>
-    <li>Status: <%= attendance.status %></li>
-    <li>Wedding: <%= attendance.wedding.name %></li>
+<div class="attendance-container clearfix">
+<% if attendance.user_id %>
+  <h3><%= attendance.user.first_name %> <%= attendance.user.last_name%></h3>
+  <p>Email: <%= attendance.email %></p>
   <% else %>
-    <li>Email: <%= attendance.email %></li>
-    <li>Status: <%= attendance.status %></li>
-    <li>Wedding: <%= attendance.wedding.name %></li>
+  <h3><%= attendance.email %></h3>
   <% end %>
+  <div class="attendance-buttons right">
   <% if admin_status? %>
-    <li><%= link_to "Uninvite", wedding_attendance_path(@wedding, attendance.id) , method: :delete %></li>
+    <%= link_to "Uninvite", wedding_attendance_path(@wedding, attendance.id) , method: :delete, class: "button small radius"%>
     <% end %>
-  </ul>
-</li>
+  </div>
+  <p>Status: <%= attendance.status %></p>
+
+
+</div>

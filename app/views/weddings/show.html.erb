@@ -2,10 +2,10 @@
   <div class="image-cover">
     <h1><%= @wedding.name %></h1>
     <% if admin_status? %>
-    <ul>
+    <div class="buttonsbox">
       <p><%= link_to "Edit wedding details", edit_wedding_path(@wedding), class: "button small radius"%></p>
       <p><%= link_to "Manage Guests", wedding_attendances_path(@wedding), class: "button small radius"%></p>
-    </ul>
+    </div>
     <% end %>
   </div>
 </div>
@@ -27,10 +27,11 @@
   </div>
 
 </div>
-
+<% if @your_claimed_wishes.first != nil %>
 <div class="under-line"></div>
-
 <h3>Wishes you've claimed</h3>
+<% end %>
+
 <% @your_claimed_wishes.each do |wish| %>
 <div class="wish-container clearfix">
   <%= image_tag wish.image.url, class: "left wish-image" %>
@@ -61,8 +62,10 @@
 </div>
 <% end %>
 
+<% if @unclaimed_wishes.first != nil %>
 <div class="under-line"></div>
 <h3>Unclaimed wishes</h3>
+<% end %>
 
 <% @unclaimed_wishes.each do |wish| %>
 
@@ -94,23 +97,31 @@
 </div>
 <% end %>
 
+
+<% if @claimed_wishes.first != nil %>
 <div class="under-line"></div>
 <h3>Claimed wishes</h3>
+<% end %>
 
 <% @claimed_wishes.each do |wish| %>
 
-
-
-<div>
-  <h3>Claimed: <%= wish.name %></h3>
-  <ul>
-    <li><%= wish.details %></li>
-    <li><%= image_tag wish.image.url %></li>
+<div class="wish-container claimed clearfix">
+  <%= image_tag wish.image.url, class: "left wish-image" %>
+  <h3><%= wish.name %></h3>
+  <h4>Wish claimed!</h4>
+  <p><%= wish.details %></p>
+  <div class="wish-buttons right">
     <% if admin_status? %>
-    <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
-    <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
+    <%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish), class: "button small radius" %>
+    <a data-reveal-id="deleteWish<%= wish.id %>" class="button small radius">Delete Wish</a>
     <% end %>
-    <li>Wish fulfilled!</li>
-  </ul>
+  </div>
+</div>
+
+<div class="reveal-modal" id="deleteWish<%= wish.id %>" data-reveal>
+  <h1>Delete this wish?</h1>
+  <p class="lead">Are you sure you want to delete this wish</p>
+  <p><%= link_to "Delete Wish", wedding_wish_path(@wedding, wish), method: :delete%></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <% end %>
