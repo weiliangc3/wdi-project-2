@@ -167,6 +167,15 @@ body{
       }
     }
 
+    div.show-wedding-header{
+      text-align: right;
+      h1{
+        text-align: right;
+        margin-left: auto;
+      }
+
+    }
+
     label{
       font-size: 15px;
     }
@@ -182,4 +191,21 @@ body{
   div.container{
     margin: 2em;
   }
+
+  div.wish-search-header{
+    margin: 0.5em, 2em, 0.5em, 2em;
+    form.wish_search{
+      float: right;
+      margin:0;
+    }
+  }
+}
+
+div.under-line{
+  width: 80%;
+  min-width: 350px;
+  margin: 0 auto;
+  border-bottom:1px solid black;
+  padding: 8px 0 0px 0;
+  clear: both;
 }

@@ -1,18 +1,16 @@
-<div class="parallax-window" data-parallax="scroll" data-image-src= "<%= @wedding.wedding_image.url %>">
+<div class="parallax-window show-wedding-header" data-parallax="scroll" data-image-src= "<%= @wedding.wedding_image.url %>">
 <div class="image-cover">
 <h1><%= @wedding.name %></h1>
 <% if admin_status? %>
 <ul>
-  <li><%= link_to "Edit wedding details", edit_wedding_path(@wedding)%></li>
-  <li><%= link_to "Manage Guests", wedding_attendances_path(@wedding) %></li>
+  <p><%= link_to "Edit wedding details", edit_wedding_path(@wedding), class: "button small radius"%></p>
+  <p><%= link_to "Manage Guests", wedding_attendances_path(@wedding), class: "button small radius"%></p>
 </ul>
-
-<div>
-  <%= link_to "Add a wish", new_wedding_wish_path(@wedding) %>
-</div>
 <% end %>
 </div>
 </div>
+
+<div class="wish-search-header">
 
 <%= search_form_for @q, url: wedding_path(@wedding) do |f| %>
   <p>
@@ -24,6 +22,14 @@
   </p>
 <% end %>
 
+<div>
+  <%= link_to "Add a wish", new_wedding_wish_path(@wedding),class: "button small radius" %>
+</div>
+
+</div>
+
+<div class="under-line">
+</div>
 
 
 <% @your_claimed_wishes.each do |wish| %>
