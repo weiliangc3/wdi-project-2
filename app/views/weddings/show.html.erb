@@ -1,104 +1,116 @@
 <div class="parallax-window show-wedding-header" data-parallax="scroll" data-image-src= "<%= @wedding.wedding_image.url %>">
-<div class="image-cover">
-<h1><%= @wedding.name %></h1>
-<% if admin_status? %>
-<ul>
-  <p><%= link_to "Edit wedding details", edit_wedding_path(@wedding), class: "button small radius"%></p>
-  <p><%= link_to "Manage Guests", wedding_attendances_path(@wedding), class: "button small radius"%></p>
-</ul>
-<% end %>
-</div>
+  <div class="image-cover">
+    <h1><%= @wedding.name %></h1>
+    <% if admin_status? %>
+    <ul>
+      <p><%= link_to "Edit wedding details", edit_wedding_path(@wedding), class: "button small radius"%></p>
+      <p><%= link_to "Manage Guests", wedding_attendances_path(@wedding), class: "button small radius"%></p>
+    </ul>
+    <% end %>
+  </div>
 </div>
 
 <div class="wish-search-header">
 
-<%= search_form_for @q, url: wedding_path(@wedding) do |f| %>
+  <%= search_form_for @q, url: wedding_path(@wedding) do |f| %>
   <p>
     <%= f.label :name_cont %>
     <%= f.text_field :name_cont %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit class: "button small radius"%>
   </p>
-<% end %>
+  <% end %>
 
-<div>
-  <%= link_to "Add a wish", new_wedding_wish_path(@wedding),class: "button small radius" %>
-</div>
-
-</div>
-
-<div class="under-line">
-</div>
-
-
-<% @your_claimed_wishes.each do |wish| %>
   <div>
-    <h3>You claimed: <%= wish.name %></h3>
-    <ul>
-      <li><%= wish.details %></li>
-      <li><%= image_tag wish.image.url %></li>
-      <% if admin_status? %>
-      <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
-      <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
-      <% end %>
-      <li><a data-reveal-id="unclaimWish<%= wish.id %>">Unclaim Wish</a></li>
-    </ul>
+    <%= link_to "Add a wish", new_wedding_wish_path(@wedding),class: "button small radius" %>
   </div>
 
-  <div class="reveal-modal" id="deleteWish<%= wish.id %>" data-reveal>
-    <h1>Delete this wish?</h1>
-    <p class="lead">Are you sure you want to delete this wish</p>
-    <p><%= link_to "Delete Wish", wedding_wish_path(@wedding, wish), method: :delete%></p>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div class="under-line"></div>
+
+<h3>Wishes you've claimed</h3>
+<% @your_claimed_wishes.each do |wish| %>
+<div class="wish-container clearfix">
+  <%= image_tag wish.image.url, class: "left wish-image" %>
+  <h3><%= wish.name %></h3>
+  <p><%= wish.details %></p>
+
+  <div class="wish-buttons right">
+    <% if admin_status? %>
+    <%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish), class: "button small radius" %>
+    <a data-reveal-id="deleteWish<%= wish.id %>" class="button small radius">Delete Wish</a>
+    <% end %>
+    <a data-reveal-id="unclaimWish<%= wish.id %>" class="button small radius">Unclaim Wish</a>
   </div>
-  <div class="reveal-modal" id="unclaimWish<%= wish.id %>" data-reveal>
-    <h1>Unclaim this wish?</h1>
-    <p class="lead">Are you sure you want to unclaim this wish</p>
-    <p><%= link_to "Unclaim Wish", unclaim_wedding_wish_path(@wedding, wish), method: :patch %></p>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  </div>
+</div>
+
+
+<div class="reveal-modal" id="deleteWish<%= wish.id %>" data-reveal>
+  <h1>Delete this wish?</h1>
+  <p class="lead">Are you sure you want to delete this wish</p>
+  <p><%= link_to "Delete Wish", wedding_wish_path(@wedding, wish), method: :delete, class: "button small radius" %></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<div class="reveal-modal" id="unclaimWish<%= wish.id %>" data-reveal>
+  <h1>Unclaim this wish?</h1>
+  <p class="lead">Are you sure you want to unclaim this wish</p>
+  <p><%= link_to "Unclaim Wish", unclaim_wedding_wish_path(@wedding, wish), method: :patch, class: "button small radius" %></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 <% end %>
+
+<div class="under-line"></div>
+<h3>Unclaimed wishes</h3>
 
 <% @unclaimed_wishes.each do |wish| %>
-  <div>
-    <h3>Unclaimed: <%= wish.name %></h3>
-    <ul>
-      <li><%= wish.details %></li>
-      <li><%= image_tag wish.image.url %></li>
-      <% if admin_status? %>
-      <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
-      <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
-      <% end %>
-      <li><a data-reveal-id="claimWish<%= wish.id %>">Claim Wish</a></li>
-    </ul>
-  </div>
 
-  <div class="reveal-modal" id="deleteWish<%= wish.id %>" data-reveal>
-    <h1>Delete this wish?</h1>
-    <p class="lead">Are you sure you want to delete this wish</p>
-    <p><%= link_to "Delete Wish", wedding_wish_path(@wedding, wish), method: :delete%></p>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+<div class="wish-container unclaimed clearfix">
+  <%= image_tag wish.image.url, class: "left wish-image" %>
+  <h3><%= wish.name %></h3>
+  <p><%= wish.details %></p>
+
+  <div class="wish-buttons right">
+    <% if admin_status? %>
+    <%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish), class: "button small radius" %>
+    <a data-reveal-id="deleteWish<%= wish.id %>" class="button small radius">Delete Wish</a>
+    <% end %>
+    <a data-reveal-id="claimWish<%= wish.id %>" class="button small radius">Claim Wish</a>
   </div>
-  <div class="reveal-modal" id="claimWish<%= wish.id %>" data-reveal>
-    <h1>Claim this wish?</h1>
-    <p class="lead">Are you sure you want to claim this wish</p>
-    <p><%= link_to "Claim Wish", claim_wedding_wish_path(@wedding, wish), method: :patch %></p>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  </div>
+</div>
+
+<div class="reveal-modal" id="deleteWish<%= wish.id %>" data-reveal>
+  <h1>Delete this wish?</h1>
+  <p class="lead">Are you sure you want to delete this wish</p>
+  <p><%= link_to "Delete Wish", wedding_wish_path(@wedding, wish), method: :delete%></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<div class="reveal-modal" id="claimWish<%= wish.id %>" data-reveal>
+  <h1>Claim this wish?</h1>
+  <p class="lead">Are you sure you want to claim this wish</p>
+  <p><%= link_to "Claim Wish", claim_wedding_wish_path(@wedding, wish), method: :patch, class: "button small radius" %></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 <% end %>
 
+<div class="under-line"></div>
+<h3>Claimed wishes</h3>
+
 <% @claimed_wishes.each do |wish| %>
-  <div>
-    <h3>Claimed: <%= wish.name %></h3>
-    <ul>
-      <li><%= wish.details %></li>
-      <li><%= image_tag wish.image.url %></li>
-      <% if admin_status? %>
-      <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
-      <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
-      <% end %>
-      <li>Wish fulfilled!</li>
-    </ul>
-  </div>
+
+
+
+<div>
+  <h3>Claimed: <%= wish.name %></h3>
+  <ul>
+    <li><%= wish.details %></li>
+    <li><%= image_tag wish.image.url %></li>
+    <% if admin_status? %>
+    <li><%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish) %></li>
+    <li><a data-reveal-id="deleteWish<%= wish.id %>">Delete Wish</a></li>
+    <% end %>
+    <li>Wish fulfilled!</li>
+  </ul>
+</div>
 <% end %>

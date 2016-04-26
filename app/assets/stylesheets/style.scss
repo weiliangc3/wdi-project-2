@@ -6,7 +6,7 @@
   font-family: 'LindenHill';
   src: url(font-path('LindenHill.otf'))
 }
-// <link href='https://fonts.googleapis.com/css?family=Playfair+Display|Libre+Baskerville|Cinzel|Josefin+Slab|Open+Sans|Lato|Montserrat' rel='stylesheet' type='text/css'>
+
 h1{
   font-family: 'Cinzel', 'Josefin Slab', 'Montserrat', Georgia, Cambria, "Times New Roman", Times, serif;
   font-weight: 400;
@@ -72,50 +72,53 @@ body{
       div.my-wedding-show{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(215, 236, 222,1));
         text-align: right;
+        &:hover{
+          background: linear-gradient(to right, rgba(255,255,255,0) , rgba(165, 214, 180,1));
+        }
         p {
           color: #121212;
           padding-bottom: 2em;
         }
       }
-      div.my-wedding-show:hover{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(165, 214, 180,1));
-      }
+      
 
       div.admin-wedding-show{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 220,1));
         text-align: right;
+        &:hover{
+          background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,1));
+        }
         p {
           color: #121212;
           padding-bottom: 2em;
         }
-      }
-      div.admin-wedding-show:hover{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,1));
       }
 
       div.guest-wedding-show{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(203, 214, 229,1));
         text-align: right;
+        &:hover{
+          background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,1));
+        }
         p {
           color: #121212;
           padding-bottom: 2em;
         }
       }
-      div.guest-wedding-show:hover{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,1));
-      }
+      
 
       div.unconfirmed-wedding-show{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(246, 221, 229,1));
         text-align: right;
+        &:hover{
+          background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,1));
+        }
         p {
           color: #121212;
           padding-bottom: 2em;
         }
       }
-      div.unconfirmed-wedding-show:hover{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,1));
-      }
+      
 
     }
 
@@ -141,13 +144,14 @@ body{
         width: 100%;
         min-height: 150px;
         padding: 1em;
+        &:hover{
+          background: linear-gradient(to right, rgba(136, 66, 171,0.3),rgba(136, 66, 171,0));
+        }
         p {
           color: #141414;
         }
       }
-      div.link-cover:hover{
-        background: linear-gradient(to right, rgba(136, 66, 171,0.3),rgba(136, 66, 171,0));
-      }
+      
     }
 
     div.new-wedding-header{
@@ -193,12 +197,55 @@ body{
   }
 
   div.wish-search-header{
-    margin: 0.5em, 2em, 0.5em, 2em;
+    margin: 2em;
     form.wish_search{
       float: right;
-      margin:0;
+      margin: 0;
+      width: 50%;
     }
   }
+
+  // <link href='https://fonts.googleapis.com/css?family=Playfair+Display|Libre+Baskerville|Cinzel|Josefin+Slab|Open+Sans|Lato|Montserrat' rel='stylesheet' type='text/css'>
+
+  div.wish-container{
+    background-color: white;
+    font-family: 'Fanwood' ; 
+    margin: 2em;
+    border: 2px solid #FFF489;
+    transition: all .3s;
+    img.wish-image{
+      padding:0.5em;
+    }
+    div.wish-buttons{
+      padding: 0.5em;
+      height: 70px;
+      a.button{
+        padding: 0.5em;
+      }
+    }
+    &:hover{
+      background-color: #FFFCDE;
+      box-shadow: 4px 4px 5px #FFF8B2;
+      transform: translate(-1px,-1px)
+    }
+  }
+
+  div.unclaimed{
+    border: 2px solid #DBFBDB;
+    &:hover{
+      background-color: #FFFCDE;
+      box-shadow: 4px 4px 5px #DBFBDB;
+    }
+  }
+
+  div.claimed{
+    border: 2px solid #FFF489;
+    &:hover{
+      background-color: #FFFCDE;
+      box-shadow: 4px 4px 5px #FFF8B2;
+    }
+  }
+
 }
 
 div.under-line{
