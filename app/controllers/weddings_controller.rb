@@ -5,7 +5,7 @@ class WeddingsController < ApplicationController
     @my_attendances = current_user.attendances.where(role: "couple", status: "confirmed")
     @admin_attendances = current_user.attendances.where(role: "admin", status: "confirmed")
     @guest_attendances = current_user.attendances.where(role: "guest", status: "confirmed")
-    @unconfirmed_attendances = current_user.attendances.where(status: "unconfirmed")
+    @unconfirmed_attendances = Attendance.where(email: current_user.email , status: "unconfirmed")
     @weddings = Wedding.all
   end
 
@@ -27,9 +27,9 @@ class WeddingsController < ApplicationController
 
   def create
     wedding = Wedding.new(wedding_params)
-    Attendance.create!(role: "admin", user_id: current_user.id, status: "confirmed", email: current_user.email, wedding_id: wedding.id)
     if wedding.save
       flash[:success] = "Wedding created!"
+      Attendance.create!(role: "admin", user_id: current_user.id, status: "confirmed", email: current_user.email, wedding_id: wedding.id)
       redirect_to wedding_path(wedding)
     else
       flash[:error]   = "Wedding creation failed"
@@ -43,11 +43,11 @@ class WeddingsController < ApplicationController
   end
 
   def destroy
+    check_admin!
     @wedding = Wedding.find(params[:id])
     @wedding.destroy
     flash[:success] = "Wedding deleted"
     redirect_to weddings_path
-    check_admin!
   end
 
   def update

@@ -16,18 +16,14 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :wedding_image %><br>
-    <%= f.text_field :wedding_image %>
-  </div>
-  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :wedding_image %><br />
+    <%= f.label :wedding_image %>
     <%= f.file_field :wedding_image %>
   </div>
   <div class="actions">
-    <%= f.submit, class: "button small radius"  %>
+    <%= f.submit class: "button small radius" %>
   </div>
 <% end %>

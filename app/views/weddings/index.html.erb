@@ -45,17 +45,21 @@
 <% end %>
 
 <% @unconfirmed_attendances.each do |a| %>
-  <ul>
-    <li>Unconfirmed Wedding</li>
-    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
-    <li><%= a.wedding.wedding_image %></li>
-    <li><%= a.wedding.description %></li>
-    <li><%= link_to "Confirm Attendance", confirm_wedding_attendance_path(a.wedding.id, a.id), method: :patch %></li>
-  </ul>
+<div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
+  <%= link_to confirm_wedding_attendance_path(a.wedding.id, a.id), method: :patch do %>
+  <div class="image-cover unconfirmed-wedding-show">
+    <h2><%= a.wedding.name %></h2>
+    <p><%= a.wedding.description %></p>
+  </div>
+  <% end %>
+</div>
 <% end %>
 
-<h2>New wedding?</h2>
-<ul>
-  <li>Organising a Wedding?</li>
-  <li><%= link_to "Click here to register your wedding", new_wedding_path %></li>
-</ul>
+<%= link_to new_wedding_path do %>
+<div class="new-wedding-link">
+<div class="link-cover">
+  <h2>Organising a Wedding?</h2>
+<p>Click here to register your wedding</p>
+</div>
+</div>
+<% end %>

@@ -70,28 +70,51 @@ body{
       }
 
       div.my-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 220,1));
-        text-align: right;
-        transition: background 2s;
-      }
-      div.my-wedding-show:hover{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,1));
-      }
-
-      div.admin-wedding-show{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(215, 236, 222,1));
         text-align: right;
+        p {
+          color: #121212;
+          padding-bottom: 2em;
+        }
       }
-      div.admin-wedding-show:hover{
+      div.my-wedding-show:hover{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(165, 214, 180,1));
       }
 
-      div.guest-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(215, 236, 222,1));
+      div.admin-wedding-show{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 220,1));
         text-align: right;
+        p {
+          color: #121212;
+          padding-bottom: 2em;
+        }
+      }
+      div.admin-wedding-show:hover{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,1));
+      }
+
+      div.guest-wedding-show{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(203, 214, 229,1));
+        text-align: right;
+        p {
+          color: #121212;
+          padding-bottom: 2em;
+        }
       }
       div.guest-wedding-show:hover{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 197,1));
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,1));
+      }
+
+      div.unconfirmed-wedding-show{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(246, 221, 229,1));
+        text-align: right;
+        p {
+          color: #121212;
+          padding-bottom: 2em;
+        }
+      }
+      div.unconfirmed-wedding-show:hover{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,1));
       }
 
     }
@@ -106,11 +129,57 @@ body{
       }
     }
 
+    div.new-wedding-link{
+      background-image: image-url('stockflower2.jpeg');
+      background-size: 100%, auto;
+      background-position: 0, -200px;
+      min-height: 150px;
+      width:100%;
+      margin-bottom: 3em;
+      div.link-cover{
+        height: 100%;
+        width: 100%;
+        min-height: 150px;
+        padding: 1em;
+        p {
+          color: #141414;
+        }
+      }
+      div.link-cover:hover{
+        background: linear-gradient(to right, rgba(136, 66, 171,0.3),rgba(136, 66, 171,0));
+      }
+    }
+
+    div.new-wedding-header{
+      background-image: image-url('stockwedding3.jpeg');
+      background-size: 100%, auto;
+      background-position: 0, -200px;
+      min-height: 150px;
+      width:100%;
+      margin-bottom: 3em;
+      h1 {text-align: left;}
+      div.link-cover{
+        background: linear-gradient(to right, rgba(255,255,255,0.4),rgba(255,255,255,0));
+        height: 100%;
+        width: 100%;
+        min-height: 150px;
+        padding: 1em;
+      }
+    }
+
     label{
       font-size: 15px;
     }
     div.devise-links{
       margin:1em;
     }
+  }
+
+  form{
+    margin: 2em;
+  }
+
+  div.container{
+    margin: 2em;
   }
 }

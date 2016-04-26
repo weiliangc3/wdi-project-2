@@ -86,6 +86,21 @@ a6 = Attendance.create!(role: "guest",
                     email: "john@john.com",
                     wedding_id: w1.id)
 
+a7 = Attendance.create!(role: "couple",
+                    status: "unconfirmed",
+                    email: "jill@jill.com",
+                    wedding_id: w2.id)
+
+a8 = Attendance.create!(role: "couple",
+                    status: "unconfirmed",
+                    email: "carl@carl.com",
+                    wedding_id: w3.id)
+
+a9 = Attendance.create!(role: "couple",
+                    status: "unconfirmed",
+                    email: "bill@bill.com",
+                    wedding_id: w4.id)
+
 wi1 = Wish.create!( name: "Pan",
                 details: "I really want a pan. Teflon please",
                 wedding_id: w1.id)
