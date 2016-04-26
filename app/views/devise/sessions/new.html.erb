@@ -1,45 +1,47 @@
-<h1>WeiDing Gifts</h2>
+<h1>WeiDing Gifts</h1>
 
-<div class="parallax-window" data-parallax="scroll" data-image-src="<%= asset_path '/images/stockflower2.jpeg' %>">
+<div class="parallax-window index-parallax" data-parallax="scroll" data-image-src="<%= asset_path '/images/stockflower1.jpeg' %>">
   <div class="image-cover">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %>
-</div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
 
-<div class="field">
-  <%= f.label :password %><br />
-  <%= f.password_field :password, autocomplete: "off" %>
-</div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
 
-<% if devise_mapping.rememberable? -%>
-<div class="field">
-  <%= f.check_box :remember_me %>
-  <%= f.label :remember_me %>
-</div>
-<% end -%>
+    <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+    <% end -%>
 
-<div class="actions">
-  <%= f.submit "Log in", class: "button small radius" %>
-</div>
-<% end %>
-<div class="devise-links">
-  <%= render "devise/shared/links" %>
-</div>
+    <div class="actions">
+      <%= f.submit "Log in", class: "button small radius" %>
+    </div>
+    <% end %>
+    <div class="devise-links">
+      <%= render "devise/shared/links" %>
+    </div>
 
   </div>
 </div>
 
+<div class="row index-content">
+  <div class="small-12 medium-10 medium-offset-1 columns">
+  <h3 class="text-center">WeiDings was made to make managing weddings easy.</h3>
+  <p>WeiDing Gifts makes managing your wedding gift registry both elegant and easy.</p>
+  <p>Starting with us is easy- register your wedding with us, list the gifts you want, invite your guests, and you're good to go.</p>
+  <p>Forget Google Docs, Dropbox or other online spreadsheets. Let us manage your wedding gift registry so you can focus on your special day.</p>
+  </div>
+</div>
 
-<div>
-  Create your wedding, invite your friends, and manage your wedding favours here!
-  <p>CONTENT</p>
-  <p>CONTENT</p>
-  <p>CONTENT</p>
-  <p>CONTENT</p>
-  <p>CONTENT</p>
-  <p>CONTENT</p>
-  <p>CONTENT</p>
-  <p>CONTENT</p>
+<div class="row index-content">
+  <div class="small-10 small-offset-1 medium-8 medium-offset-2 columns">
+    <h4 class="text-center">Sign up and manage your wedding gifts here</h4>
+  </div>
 </div>

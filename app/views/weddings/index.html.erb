@@ -1,29 +1,49 @@
-<h1>Weddings#index</h1>
+<h1>Weddings</h1>
+
+<% if @my_attendances.first != nil %>
+<h2>Your wedding</h2>
+<% end %>
 
 <% @my_attendances.each do |a| %>
-  <ul>
-    <li>My Wedding</li>
-    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
-    <li><%= a.wedding.wedding_image %></li>
-    <li><%= a.wedding.description %></li>
-  </ul>
+<div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
+  <%= link_to wedding_path(a.wedding) do %>
+  <div class="image-cover my-wedding-show">
+    <h2><%= a.wedding.name %></h2>
+    <p><%= a.wedding.description %></p>
+  </div>
+  <% end %>
+</div>
 <% end %>
+
+<% if @admin_attendances.first != nil || @guest_attendances.first != nil %>
+<h2>Friend's weddings</h2>
+<% end %>
+
 <% @admin_attendances.each do |a| %>
-  <ul>
-    <li>Admin Weddings</li>
-    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
-    <li><%= a.wedding.wedding_image %></li>
-    <li><%= a.wedding.description %></li>
-  </ul>
+<div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
+  <%= link_to wedding_path(a.wedding) do %>
+  <div class="image-cover admin-wedding-show">
+    <h2><%= a.wedding.name %></h2>
+    <p><%= a.wedding.description %></p>
+  </div>
+  <% end %>
+</div>
 <% end %>
 <% @guest_attendances.each do |a| %>
-  <ul>
-    <li>Guest Wedding</li>
-    <li><%= link_to a.wedding.name, wedding_path(a.wedding) %></li>
-    <li><%= a.wedding.wedding_image %></li>
-    <li><%= a.wedding.description %></li>
-  </ul>
+<div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
+  <%= link_to wedding_path(a.wedding) do %>
+  <div class="image-cover guest-wedding-show">
+    <h2><%= a.wedding.name %></h2>
+    <p><%= a.wedding.description %></p>
+  </div>
+  <% end %>
+</div>
 <% end %>
+
+<% if @unconfirmed_attendances.first != nil %>
+<h2>Weddings to confirm</h2>
+<% end %>
+
 <% @unconfirmed_attendances.each do |a| %>
   <ul>
     <li>Unconfirmed Wedding</li>
@@ -34,6 +54,7 @@
   </ul>
 <% end %>
 
+<h2>New wedding?</h2>
 <ul>
   <li>Organising a Wedding?</li>
   <li><%= link_to "Click here to register your wedding", new_wedding_path %></li>

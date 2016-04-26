@@ -10,10 +10,13 @@
 h1{
   font-family: 'Cinzel', 'Josefin Slab', 'Montserrat', Georgia, Cambria, "Times New Roman", Times, serif;
   font-weight: 400;
+  text-align: center;
 }
 
 body{
   min-height: 600px;
+
+
   div.background-flower{
     background: image-url('stock10.jpg');
     background-repeat: no-repeat;
@@ -37,19 +40,24 @@ body{
       margin-right: 20px;
       text-align: right;
       width: 30%;
-      min-width: 200px;
+      min-width: 250px;
       background-color: rgba(white, 0.5);
     }
 
     div.parallax-window{
       min-height: 150px;
       div.image-cover{
-        background-color: rgba(255, 255, 255, 0.5);
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255,255,255,1));
         min-height: 150px;
+        margin-left: auto;
+        max-width: 400px;
         h2{
           margin-top: 0;
+          margin-left: auto;
           font-size: 50px; 
           font-family: 'Cinzel';
+          max-width: 300px
+
         }    
       }
       form.new_user {
@@ -60,12 +68,49 @@ body{
         margin-right: 20px;
         text-align: right;
       }
+
+      div.my-wedding-show{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 220,1));
+        text-align: right;
+        transition: background 2s;
+      }
+      div.my-wedding-show:hover{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,1));
+      }
+
+      div.admin-wedding-show{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(215, 236, 222,1));
+        text-align: right;
+      }
+      div.admin-wedding-show:hover{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(165, 214, 180,1));
+      }
+
+      div.guest-wedding-show{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(215, 236, 222,1));
+        text-align: right;
+      }
+      div.guest-wedding-show:hover{
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 197,1));
+      }
+
     }
 
-    div.
+    div.index-content{
+      margin-top: 2em;
+      p {
+        margin: 0.5em;
+        margin-top: 1.5em;
+        font-size: 1.2em;
+        font-family: 'Fanwood', Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+    }
 
     label{
       font-size: 15px;
+    }
+    div.devise-links{
+      margin:1em;
     }
   }
 }
