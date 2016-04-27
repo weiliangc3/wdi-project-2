@@ -13,13 +13,9 @@
 <div class="wish-search-header">
 
   <%= search_form_for @q, url: wedding_path(@wedding) do |f| %>
-  <p>
-    <%= f.label :name_cont %>
-    <%= f.text_field :name_cont %>
-  </p>
-  <p>
-    <%= f.submit class: "button small radius"%>
-  </p>
+  <%= f.label :name_cont %>
+  <%= f.text_field :name_cont %><br>
+  <%= f.submit class: "button small radius"%>
   <% end %>
 
   <div>
@@ -27,10 +23,26 @@
   </div>
 
 </div>
-<% if @your_claimed_wishes.first != nil %>
-<div class="under-line"></div>
-<h3>Wishes you've claimed</h3>
+
+
+<% if (@your_claimed_wishes.first == nil) && (@unclaimed_wishes.first == nil) && (@claimed_wishes.first == nil) %>
+<div class="seperator">
+  <%= image_tag("seperator2.png", class: "seperator") %>
+</div>
+<div class="no-wish-image">
+<h2>No wishes found</h2>
+<p>Check back later after the couple adds some</p>
+</div>
 <% end %>
+
+
+<% if @your_claimed_wishes.first != nil %>
+<div class="seperator">
+  <%= image_tag("seperator2.png", class: "seperator") %>
+</div>
+<div class="text-center wish-section-title"><%= image_tag("present1.png", class: "wish-section-image") %>
+<h3 class="wish-section-title">Wishes you've claimed</h3>
+</div>
 
 <% @your_claimed_wishes.each do |wish| %>
 <div class="wish-container clearfix">
@@ -61,14 +73,16 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <% end %>
-
-<% if @unclaimed_wishes.first != nil %>
-<div class="under-line"></div>
-<h3>Unclaimed wishes</h3>
 <% end %>
 
+<% if @unclaimed_wishes.first != nil %>
+<div class="seperator">
+  <%= image_tag("seperator2.png", class: "seperator") %>
+</div>
+<div class="text-center wish-section-title"><%= image_tag("present2.png", class: "wish-section-image") %>
+<h3 class="wish-section-title">Unclaimed wishes</h3>
+</div>
 <% @unclaimed_wishes.each do |wish| %>
-
 <div class="wish-container unclaimed clearfix">
   <%= image_tag wish.image.url, class: "left wish-image" %>
   <h3><%= wish.name %></h3>
@@ -96,12 +110,17 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <% end %>
+<% end %>
 
 
 <% if @claimed_wishes.first != nil %>
-<div class="under-line"></div>
-<h3>Claimed wishes</h3>
-<% end %>
+<div class="seperator">
+  <%= image_tag("seperator2.png", class: "seperator") %>
+</div>
+
+<div class="text-center wish-section-title"><%= image_tag("present3.png", class: "wish-section-image") %>
+<h3 class="wish-section-title">Claimed wishes</h3>
+</div>
 
 <% @claimed_wishes.each do |wish| %>
 
@@ -124,4 +143,5 @@
   <p><%= link_to "Delete Wish", wedding_wish_path(@wedding, wish), method: :delete%></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
+<% end %>
 <% end %>

@@ -7,7 +7,7 @@
       </section>
 
       <section class="middle tab-bar-section">
-        <h1 class="title">WeiDing Gifts</h1>
+        <h1 class="title"><%= image_tag("logo.png", class: "header-logo") %>WeiDings</h1>
       </section>
 
     </nav>
@@ -17,10 +17,19 @@
         <% if user_signed_in? %>
 
         <% if session[:current_wedding] %>
-        <li><label>Current Wedding</label></li>
+        <li><label>Active Wedding</label></li>
         <% current_wedding = Wedding.find(session[:current_wedding]) %>
         <li><%= link_to current_wedding.name, wedding_path(session[:current_wedding]) %></li>
         <% end %>
+
+  <li><label>Weddings</label></li>        
+  <% Wedding.all.order(created_at: :desc).each do |wedding| %>
+
+ <% if wedding.attendances.find_by(user_id: current_user.id) %>
+ <li><%= link_to wedding.name, wedding_path(wedding) %></li>
+ <% end %>
+
+  <% end %>
 
         <li><label><%= current_user.email %></label></li>
         <li><%= link_to "Weddings List", weddings_path %></li>

@@ -20,6 +20,22 @@ h2{
   font-family: 'LindenHill', 'Montserrat', Georgia, Cambria, "Times New Roman", Times, serif;  
 }
 
+h3 {
+  font-family: 'LindenHill', 'Montserrat', Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+
+nav {
+  img.header-logo{
+    max-height: 1.125rem;
+  }
+}
+
+aside.left-off-canvas-menu ul.off-canvas-list li label{
+  font-weight: normal;
+}
+
+
 body{
   min-height: 600px;
 
@@ -41,14 +57,6 @@ body{
 
     section.main-section{
       min-height: 600px;
-    }
-    form.new_user {
-      margin-left: auto;
-      margin-right: 20px;
-      text-align: right;
-      width: 30%;
-      min-width: 250px;
-      background-color: rgba(white, 0.5);
     }
 
     div.parallax-window{
@@ -75,6 +83,7 @@ body{
       }
       form.new_user {
         background-color: rgba(white, 0);
+        text-align: right;
       }
       div.devise-links{
         margin-left: auto;
@@ -229,83 +238,162 @@ div.wish-search-header{
   form.wish_search{
     float: right;
     margin: 0;
-    width: 50%;
+    width: 70%;
     text-align: right;
+    p {
+      margin: none;
+    }
+    #q_name_cont{
+      text-align: left;
+      width: 80%;
+      max-width: 20em;
+      display: inline;
+    }
   }
 }
 
-  div.wish-container{
-    background-color: #F4F6FA;
-    margin: 2em;
-    border: 2px solid #D4DBE8;
-    transition: all .3s;
-    img.wish-image{
-      padding:0.5em;
-    }
-    div.wish-buttons{
-      padding: 0.5em;
-      height: 3em;
-      a.button{
-        padding: 0.5em;
-        margin-bottom: 0.5em;
-      }
-    }
-    &:hover{
-      box-shadow: 4px 4px 5px #D4DBE8;
-      transform: translate(-1px,-1px)
-    }
+div.wish-section-title{
+  img.wish-section-image{
+    height: 20px;
+    width: auto;
+    margin-top: 2em;
   }
-
-  div.unclaimed{
-    border: 2px solid #BCF2BC;
-    background-color: #F9FDF7;
-    &:hover{
-      box-shadow: 4px 4px 5px #BCF2BC;
-    }
+  h3.wish-section-title{
+    text-align: center;
+    margin-bottom: 1em;
   }
+}
+  
+div.no-wish-image{
+  background: image-url("stock7.jpeg");
+  height: 200px;
+  background-size: 100%, auto;
+  background-position: 0px, -600px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
 
-  div.claimed{
-    border: 2px solid #C8C7C7;
-    background-color: #FDFDFD;
-    &:hover{
-      box-shadow: 4px 4px 5px #C8C7C7;
-    }
+div.wish-container{
+  background-color: #F4F6FA;
+  margin: 2em;
+  border: 2px solid #D4DBE8;
+  transition: all .3s;
+  img.wish-image{
+    padding:0.5em;
   }
-
-  div.attendance-container{
+  div.wish-buttons{
     padding: 0.5em;
-    background-color: white;
-    margin: 2em;
-    border: 2px solid #D4DBE8;
-    transition: all .3s;
-    div.attendance-buttons{
-      padding: 0.5em;
-      height: 3em;
-      a.button{
-        padding: 1em;
-        margin-bottom: 0.5em;
-      }
-    }
-    &:hover{
-      background-color: #F4F6FA;
-      box-shadow: 4px 4px 5px #D4DBE8;
-      transform: translate(-1px,-1px)
-    }
-    p{
-      margin: 0px
+    height: 3em;
+    a.button{
+      padding: 0.8em;
+      margin-bottom: 0.5em;
     }
   }
+  &:hover{
+    box-shadow: 4px 4px 5px #D4DBE8;
+    transform: translate(-1px,-1px)
+  }
+}
+
+div.unclaimed{
+  border: 2px solid #BCF2BC;
+  background-color: #F9FDF7;
+  &:hover{
+    box-shadow: 4px 4px 5px #BCF2BC;
+  }
+}
+
+div.claimed{
+  border: 2px solid #C8C7C7;
+  background-color: #FDFDFD;
+  &:hover{
+    box-shadow: 4px 4px 5px #C8C7C7;
+  }
+}
+
+div.attendance-container{
+  padding: 0.5em;
+  background-color: white;
+  margin: 2em;
+  border: 2px solid #D4DBE8;
+  transition: all .3s;
+  div.attendance-buttons{
+    padding: 0.5em;
+    height: 3em;
+    a.button{
+      padding: 1em;
+      margin-bottom: 0.5em;
+    }
+  }
+  &:hover{
+    background-color: #F4F6FA;
+    box-shadow: 4px 4px 5px #D4DBE8;
+    transform: translate(-1px,-1px)
+  }
+  p{
+    margin: 0px
+  }
+}
 
 }
 
-div.under-line{
-  width: 80%;
-  min-width: 350px;
-  margin: 0 auto;
-  border-bottom:1px solid #A6A6A6;
-  padding: 8px 0 0px 0;
+div.seperator {
+  text-align: center;
   clear: both;
+  margin: 0 auto;
+  img.seperator {
+    width: 80%;
+    max-width: 500px;
+  }
 }
+div.footer-seperator{
+  text-align: center;
+  clear: both;
+  margin: 0 auto;
+  max-width: 500px;
+  font-size: 0.5em;
+  img{ 
+    width: 50%;
+    min-width: 250px;
+    max-width: 500px;
+    margin-top: 3em;
+    margin-bottom: 2.5em;
+  }
+}
+
+div.footer{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  p {
+    text-align: center;
+  }
+}
+
+
+div.registration-button{
+  -webkit-filter: grayscale(100%);
+  background-image: image-url("stock5.jpeg");
+  min-height: 10em;
+  background-position: center;
+  background-size: cover;
+
+  &:hover{
+    -webkit-filter: grayscale(0%);
+    a {
+      color: red;
+    }
+  }
+}
+
+// div.under-line{
+//   width: 80%;
+//   min-width: 350px;
+//   margin: 0 auto;
+//   border-bottom:1px solid #A6A6A6;
+//   padding: 8px 0 0px 0;
+//   clear: both;
+// }
 
 // -webkit-filter: grayscale(100);
 
