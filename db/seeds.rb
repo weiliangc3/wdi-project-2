@@ -128,15 +128,17 @@ wi3.image = Rails.root.join("public/images/seeds/skilletgift.jpeg").open
 wi3.save!
 
 wi4 = Wish.create!( name: "Guitar",
-                details: "I really want a guitar. Fender acoustic please",
+                details: "Jack loves to play guitar, he loves playing 'Banana pancakes' and songs from the Curious George soundtrack. He's going to teach me, and then we'll play better when we're together!",
                 wedding_id: w2.id)
 wi4.image = Rails.root.join("public/images/seeds/guitargift.jpeg").open
 wi4.save!
 
-wi5 = Wish.create!( name: "Chair",
-                details: "I really want a chair. Comfy please",
+wi5 = Wish.create!( name: "Coffee Pot",
+                details: "We don't drink coffee, but we have friends that do, and we want them to feel right at home. Help us pick a coffee pot- we're no good at picking good ones!",
                 wedding_id: w1.id,
                 user_id: u1)
+wi5.image = Rails.root.join("public/images/seeds/coffeegift.jpeg").open
+wi5.save!
 
 wi6 = Wish.create!( name: "Meme",
                 details: "I really want a meme. Gooby please",
