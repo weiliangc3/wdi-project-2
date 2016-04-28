@@ -39,16 +39,16 @@ u7 = User.create!(email: "carl@carl.com",
               last_name: "Carlisle")
 
 
-w1 = Wedding.create!( name: "WeiDing",
-                  description: "Wei's Test Wedding")
+w1 = Wedding.create!( name: "WeiDing Inaugural Ball",
+                  description: "Wei's getting married to his computer!")
 
-w2 = Wedding.create!( name: "Jill's Wedding",
-                  description: "Jill's Test Wedding")
+w2 = Wedding.create!( name: "Jack and Jill goes up the hill",
+                  description: "Join us in this life changing event to get water!")
 
 w3 = Wedding.create!( name: "Carl's Wedding",
-                  description: "Carl's Test Wedding")
+                  description: "Carl is planning a surprise wedding for his fiance and wants you to be part of it")
 
-w4 = Wedding.create!( name: "Bill's Wedding",
+w4 = Wedding.create!( name: "Bill and Bonnies Bash",
                   description: "Bill's Test Wedding")
 
 a1 = Attendance.create!(role: "couple",
