@@ -415,10 +415,13 @@ a.button{
     box-shadow: 1px 1px 5px #074D46;
     transform: translate(-1px,-1px);
   }
-  &:click{
-    box-shadow: 0;
+  &:active{
+    box-shadow: none;
+    transform: translate(0px,0px);    
   }
 }
+
+
 
 // div.under-line{
 //   width: 80%;
