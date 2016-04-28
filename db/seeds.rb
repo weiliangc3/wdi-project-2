@@ -56,7 +56,7 @@ w3.save!
 
 w4 = Wedding.create!( name: "Bill and Bonnies Bash",
                   description: "Bill and Bonnie are getting married this June in a theatre near you")
-w4.wedding_image = Rails.root.join("public/images/seeds/seedwedding4.jpeg").open
+w4.wedding_image = Rails.root.join("public/images/seeds/seedwedding4.jpg").open
 w4.save!
 
 a1 = Attendance.create!(role: "couple",
@@ -144,12 +144,12 @@ wi6 = Wish.create!( name: "Roomba",
                 details: "We get busy and can't clean the house, so we need a Roomba, like George The Roomba, to help us out and clean stuff up for us.",
                 wedding_id: w1.id,
                 user_id: u6.id)
-wi6.image = Rails.root.join("public/images/seeds/roombagift.jpeg").open
+wi6.image = Rails.root.join("public/images/seeds/roombagift.jpg").open
 wi6.save!
 
 wi7 = Wish.create!( name: "Custom N64",
                 details: "We both love consoles, and we think the best family console ever to be made was the N64. And it'd be real wicked to have a custom N64 in the style of Zelda, so if you guys could find one that would be amazing",
                 wedding_id: w1.id,
                 user_id: u6.id)
-wi7.image = Rails.root.join("public/images/seeds/n64gift.jpeg").open
+wi7.image = Rails.root.join("public/images/seeds/n64gift.jpg").open
 wi7.save!
