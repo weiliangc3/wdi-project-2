@@ -147,7 +147,9 @@ wi6 = Wish.create!( name: "Roomba",
 wi6.image = Rails.root.join("public/images/seeds/roombagift.jpeg").open
 wi6.save!
 
-wi7 = Wish.create!( name: "Rice",
-                details: "I really want rice. Yangzhou fried rice please",
+wi7 = Wish.create!( name: "Custom N64",
+                details: "We both love consoles, and we think the best family console ever to be made was the N64. And it'd be real wicked to have a custom N64 in the style of Zelda, so if you guys could find one that would be amazing",
                 wedding_id: w1.id,
                 user_id: u6.id)
+wi7.image = Rails.root.join("public/images/seeds/n64gift.jpeg").open
+wi7.save!
