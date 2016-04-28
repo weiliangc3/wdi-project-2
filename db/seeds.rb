@@ -140,10 +140,12 @@ wi5 = Wish.create!( name: "Coffee Pot",
 wi5.image = Rails.root.join("public/images/seeds/coffeegift.jpeg").open
 wi5.save!
 
-wi6 = Wish.create!( name: "Meme",
-                details: "I really want a meme. Gooby please",
+wi6 = Wish.create!( name: "Roomba",
+                details: "We get busy and can't clean the house, so we need a Roomba, like George The Roomba, to help us out and clean stuff up for us.",
                 wedding_id: w1.id,
                 user_id: u6.id)
+wi6.image = Rails.root.join("public/images/seeds/roombagift.jpeg").open
+wi6.save!
 
 wi7 = Wish.create!( name: "Rice",
                 details: "I really want rice. Yangzhou fried rice please",
