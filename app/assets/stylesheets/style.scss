@@ -421,7 +421,15 @@ a.button{
   }
 }
 
-
+div.off-canvas-wrap section.left-small a.menu-icon{
+  span::after{
+    transition: all 0.3s;
+    box-shadow: 0 0 0 1px #19655D, 0 7px 0 1px #19655D, 0 14px 0 1px #19655D;
+    &:hover{
+      box-shadow: 0 0 0 1px red, 0 7px 0 1px red, 0 14px 0 1px red;
+    }
+  }
+}
 
 // div.under-line{
 //   width: 80%;
