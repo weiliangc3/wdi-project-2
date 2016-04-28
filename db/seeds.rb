@@ -41,15 +41,23 @@ u7 = User.create!(email: "carl@carl.com",
 
 w1 = Wedding.create!( name: "WeiDing Inaugural Ball",
                   description: "Wei's getting married to his computer!")
+w1.wedding_image = Rails.root.join("public/images/seeds/seedwedding1.jpeg").open
+w1.save!
 
 w2 = Wedding.create!( name: "Jack and Jill goes up the hill",
                   description: "Join us in this life changing event to get water!")
+w2.wedding_image = Rails.root.join("public/images/seeds/seedwedding2.jpeg").open
+w2.save!
 
 w3 = Wedding.create!( name: "Carl's Wedding",
                   description: "Carl is planning a surprise wedding for his fiance and wants you to be part of it")
+w3.wedding_image = Rails.root.join("public/images/seeds/seedwedding3.jpeg").open
+w3.save!
 
 w4 = Wedding.create!( name: "Bill and Bonnies Bash",
-                  description: "Bill's Test Wedding")
+                  description: "Bill and Bonnie are getting married this June in a theatre near you")
+w4.wedding_image = Rails.root.join("public/images/seeds/seedwedding4.jpeg").open
+w4.save!
 
 a1 = Attendance.create!(role: "couple",
                     status: "confirmed",
