@@ -109,17 +109,23 @@ a9 = Attendance.create!(role: "couple",
                     email: "bill@bill.com",
                     wedding_id: w4.id)
 
-wi1 = Wish.create!( name: "Pan",
-                details: "I really want a pan. Teflon please",
+wi1 = Wish.create!( name: "Clock",
+                details: "We're moving into a new place, and need a cool clock! Help us pick a real cool one! We hear the sounds, of a ticking of clocks...",
                 wedding_id: w1.id)
+wi1.image = Rails.root.join("public/images/seeds/clockgift.jpeg").open
+wi1.save!
 
-wi2 = Wish.create!( name: "Gamecube",
-                details: "I really want a Gamecube, Smash Bros please",
+wi2 = Wish.create!( name: "Wine Glasses",
+                details: "We've never had a set of wine glasses, and we're gonna be needing a few to host some dinners. Choose some for us to use! We're sure they'll be absolutely... smashing",
                 wedding_id: w1.id)
+wi2.image = Rails.root.join("public/images/seeds/glassgift.jpeg").open
+wi2.save!
 
-wi3 = Wish.create!( name: "Duvet",
-                details: "I really want a duvet. 50 tog please",
+wi3 = Wish.create!( name: "Skillet",
+                details: "Because we love food, we love cooking! And one thing we're missing is a skillet. Help us pick a skillet? We'll grillit!",
                 wedding_id: w1.id)
+wi3.image = Rails.root.join("public/images/seeds/skilletgift.jpeg").open
+wi3.save!
 
 wi4 = Wish.create!( name: "Guitar",
                 details: "I really want a guitar. Fender acoustic please",
