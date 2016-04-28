@@ -7,9 +7,16 @@
 <% @my_attendances.each do |a| %>
 <div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
   <%= link_to wedding_path(a.wedding) do %>
-  <div class="image-cover my-wedding-show">
-    <h2><%= a.wedding.name %></h2>
-    <p><%= a.wedding.description %></p>
+  <div class="fader">
+  <div class="my-wedding-gradient"></div>
+  </div>
+  <div class="image-cover wedding-show-fade">
+  </div>
+  <div class="wedding-show-text">
+  <h2><%= a.wedding.name %></h2>
+  <p><%= a.wedding.description %></p>
+  </div>
+  <div class="mouseover-show">
   </div>
   <% end %>
 </div>
@@ -22,9 +29,16 @@
 <% @admin_attendances.each do |a| %>
 <div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
   <%= link_to wedding_path(a.wedding) do %>
-  <div class="image-cover admin-wedding-show">
-    <h2><%= a.wedding.name %></h2>
-    <p><%= a.wedding.description %></p>
+  <div class="fader">
+  <div class="admin-wedding-gradient"></div>
+  </div>
+  <div class="image-cover wedding-show-fade">
+  </div>
+  <div class="wedding-show-text">
+  <h2><%= a.wedding.name %></h2>
+  <p><%= a.wedding.description %></p>
+  </div>
+  <div class="mouseover-show">
   </div>
   <% end %>
 </div>
@@ -32,9 +46,16 @@
 <% @guest_attendances.each do |a| %>
 <div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
   <%= link_to wedding_path(a.wedding) do %>
-  <div class="image-cover guest-wedding-show">
-    <h2><%= a.wedding.name %></h2>
-    <p><%= a.wedding.description %></p>
+  <div class="fader">
+  <div class="guest-wedding-gradient"></div>
+  </div>
+  <div class="image-cover wedding-show-fade">
+  </div>
+  <div class="wedding-show-text">
+  <h2><%= a.wedding.name %></h2>
+  <p><%= a.wedding.description %></p>
+  </div>
+  <div class="mouseover-show">
   </div>
   <% end %>
 </div>
@@ -47,9 +68,16 @@
 <% @unconfirmed_attendances.each do |a| %>
 <div class="parallax-window" data-parallax="scroll" data-image-src= "<%= a.wedding.wedding_image.url %>">
   <%= link_to confirm_wedding_attendance_path(a.wedding.id, a.id), method: :patch do %>
-  <div class="image-cover unconfirmed-wedding-show">
-    <h2><%= a.wedding.name %></h2>
-    <p><%= a.wedding.description %></p>
+  <div class="fader">
+  <div class="unconfirmed-wedding-gradient"></div>
+  </div>
+  <div class="image-cover wedding-show-fade">
+  </div>
+  <div class="wedding-show-text">
+  <h2><%= a.wedding.name %></h2>
+  <p><%= a.wedding.description %></p>
+  </div>
+  <div class="mouseover-show">
   </div>
   <% end %>
 </div>
@@ -57,8 +85,8 @@
 
 <%= link_to new_wedding_path do %>
 <div class="new-wedding-link">
-<div class="tester">
-</div>
+  <div class="tester">
+  </div>
   <h2>Organising a Wedding?</h2>
   <p>Click here to register your wedding</p>
 </div>

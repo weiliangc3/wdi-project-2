@@ -40,16 +40,21 @@ body{
   min-height: 600px;
 
 
-  div.background-flower{
-    background: image-url('stock10.jpg');
-    background-repeat: no-repeat;
-    height: 400px;
-    width: 300px;
-    z-index: -102;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-  }
+  // div.background-flower{
+  //   background: image-url('stock10.jpg');
+  //   background-repeat: no-repeat;
+  //   height: 400px;
+  //   width: 300px;
+  //   z-index: -102;
+  //   position: fixed;
+  //   bottom: 0;
+  //   right: 0;
+  // }
+
+
+  // div.parallax-mirror{
+  //   -webkit-filter: grayscale(100%);
+  // }
 
   main{
     font-family: 'Playfair Display', serif;
@@ -91,18 +96,76 @@ body{
         text-align: right;
       }
 
-      div.my-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(215, 236, 222,1));
+      position: relative;
+      &:hover{
+        div.fader{
+          opacity:1 ;
+        }
+        div.wedding-show-fade{
+        }
+      }
+
+      div.wedding-show-text{
+        position: relative;
         text-align: right;
         p {
           color: #121212;
           padding-bottom: 2em;
         }
       }
-      &:hover div.my-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(165, 214, 180,1));
+
+      div.fader{
+        position: absolute;
+        transition: all .3s;
+        width: 100%;
+        height:100%;
+        opacity: 0;
+        div{
+          width:100%;
+          height:100%;
+          &.my-wedding-gradient{
+            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(165, 214, 180,0.5));
+          }
+          &.admin-wedding-gradient{
+            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,0.5));
+          }
+          &.guest-wedding-gradient{
+            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,1));
+          }
+          &.unconfirmed-wedding-gradient{
+            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,1));
+          }
+        }
       }
-      
+
+      div.wedding-show-text{
+        text-align: right;
+        h2{
+          margin-top: 0;
+          margin-left: auto;
+          font-size: 50px; 
+          font-family: 'Cinzel';
+          max-width: 300px;
+        }
+        p {
+          color: #121212;
+          padding-bottom: 2em;
+        }
+
+      }
+
+      div.wedding-show-fade{
+        position: absolute;
+        min-width: 400px;
+        height: 100%;
+        right: 0;
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255,255,255,0.8));
+        text-align: right;
+        p {
+          color: #121212;
+          padding-bottom: 2em;
+        }
+      }
 
       div.admin-wedding-show{
         background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 220,1));
@@ -263,7 +326,7 @@ div.wish-section-title{
     margin-bottom: 1em;
   }
 }
-  
+
 div.no-wish-image{
   background: image-url("stock7.jpeg");
   height: 200px;
@@ -370,20 +433,8 @@ div.footer{
   }
 }
 
-
-div.registration-button{
-  -webkit-filter: grayscale(100%);
-  background-image: image-url("stock5.jpeg");
-  min-height: 10em;
-  background-position: center;
-  background-size: cover;
-
-  &:hover{
-    -webkit-filter: grayscale(0%);
-    a {
-      color: red;
-    }
-  }
+a.reg-button{
+  margin-bottom: 4em;
 }
 
 // div.under-line{
@@ -395,7 +446,7 @@ div.registration-button{
 //   clear: both;
 // }
 
-// -webkit-filter: grayscale(100);
+// -webkit-filter: grayscale(100%);
 
 // h5 > a {
 //  position: relative;
