@@ -17,3 +17,30 @@
 
 $(function(){ $(document).foundation(); });
 
+// $(function(){
+//   if ($("h1")[1].innerHTML === "Weddings"){
+//     fader.init()
+//   }
+// });
+
+// var fader = {} || fader
+
+// fader.init = function(){
+
+//   $(".mouseover-show").each(function(i, box) {
+//     $(this).hover(
+//       function(){
+//         $($(".parallax-mirror")[($(".parallax-window").length - i -1)]).css( "-webkit-filter", "grayscale(0%)")
+//       }
+//       ,
+//       function(){
+//         $($(".parallax-mirror")[($(".parallax-window").length - i -1)]).css( "-webkit-filter", "grayscale(50%)")
+//       }
+//       )
+//   })
+
+
+//   $(".parallax-mirror").each(function(i){
+//     $(this).css("-webkit-filter", "grayscale(100%)")
+//   })
+// }

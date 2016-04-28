@@ -43,8 +43,8 @@ class WeddingsController < ApplicationController
   end
 
   def destroy
-    check_admin!
     @wedding = Wedding.find(params[:id])
+    check_admin!
     @wedding.destroy
     flash[:success] = "Wedding deleted"
     redirect_to weddings_path
@@ -71,6 +71,10 @@ class WeddingsController < ApplicationController
   end
 
   def check_admin!
+    if @wedding == nil
+      flash[:error] = "You don't have priviledges to manage this wedding"
+      redirect_to weddings_path
+    end
     if admin_status?
       true
     else

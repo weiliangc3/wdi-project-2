@@ -27,8 +27,6 @@ class WishesController < ApplicationController
   end
 
   def update
-    @wedding = Wedding.find(params[:wedding_id])
-    check_admin!
     wish = Wish.find(params[:id])
     if wish.update(wish_params)
       flash[:success] = "Wish details updated!"

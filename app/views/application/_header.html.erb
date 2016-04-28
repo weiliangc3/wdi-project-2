@@ -16,7 +16,7 @@
       <ul class="off-canvas-list">
         <% if user_signed_in? %>
 
-        <% if session[:current_wedding] %>
+        <% if session[:current_wedding] && Wedding.where(id: session[:current_wedding]).present? %>
         <li><label>Active Wedding</label></li>
         <% current_wedding = Wedding.find(session[:current_wedding]) %>
         <li><%= link_to current_wedding.name, wedding_path(session[:current_wedding]) %></li>

@@ -139,10 +139,10 @@ body{
             background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,0.5));
           }
           &.guest-wedding-gradient{
-            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,1));
+            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,0.5));
           }
           &.unconfirmed-wedding-gradient{
-            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,1));
+            background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,0.5));
           }
         }
       }
@@ -168,51 +168,14 @@ body{
         min-width: 400px;
         height: 100%;
         right: 0;
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255,255,255,0.8));
+        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255,255,255,0.5));
         text-align: right;
         p {
           color: #121212;
           padding-bottom: 2em;
         }
-      }
-
-      div.admin-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 220,1));
-        text-align: right;
-        p {
-          color: #121212;
-          padding-bottom: 2em;
-        }
-      }
-      &:hover div.admin-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(255, 255, 190,1));
-      }
-
-      div.guest-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(203, 214, 229,1));
-        text-align: right;
-        p {
-          color: #121212;
-          padding-bottom: 2em;
-        }
-      }
-      &:hover div.guest-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(162, 176, 197,1));
-      }
-
-      div.unconfirmed-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(246, 221, 229,1));
-        text-align: right;
-        p {
-          color: #121212;
-          padding-bottom: 2em;
-        }
-      }
-      &:hover div.unconfirmed-wedding-show{
-        background: linear-gradient(to right, rgba(255,255,255,0) , rgba(236, 185, 201,1));
       }
       
-
     }
 
     div.index-content{
@@ -444,6 +407,17 @@ div.footer{
 
 a.reg-button{
   margin-bottom: 4em;
+}
+
+a.button{
+  transition: all 0.3s;
+  &:hover{
+    box-shadow: 1px 1px 5px #074D46;
+    transform: translate(-1px,-1px);
+  }
+  &:click{
+    box-shadow: 0;
+  }
 }
 
 // div.under-line{
