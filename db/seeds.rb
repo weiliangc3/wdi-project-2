@@ -130,6 +130,8 @@ wi3.save!
 wi4 = Wish.create!( name: "Guitar",
                 details: "I really want a guitar. Fender acoustic please",
                 wedding_id: w2.id)
+wi4.image = Rails.root.join("public/images/seeds/guitargift.jpeg").open
+wi4.save!
 
 wi5 = Wish.create!( name: "Chair",
                 details: "I really want a chair. Comfy please",
