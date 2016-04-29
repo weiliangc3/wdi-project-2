@@ -130,6 +130,9 @@
   <h3><%= wish.name %></h3>
   <h4>Wish claimed!</h4>
   <p><%= wish.details %></p>
+  <% if admin_status? %>
+  <p>Wish claimed by: <%= wish.user.first_name %> <%= wish.user.last_name %></p>
+  <% end %>
   <div class="wish-buttons right">
     <% if admin_status? %>
     <%= link_to "Edit Wish", edit_wedding_wish_path(@wedding, wish), class: "button small radius" %>
