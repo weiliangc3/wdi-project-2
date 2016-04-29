@@ -11,12 +11,12 @@ I started first with wireframes, designing the site entirely mobile first so tha
 
 These were my final wireframes:
 
-![alt text](/readmeimages/mockup.png "Mockups")
+![alt text](readmeimages/mockup.png "Mockups")
 
 
 And this is what my workflow trello looked like at the end
 
-![alt text](/readmeimages/Trello.png "Final Trello")
+![alt text](readmeimages/Trello.png "Final Trello")
 
 I spent a significant amount of time working on the mock up and mentally organising how the site will be used and how the site should work in conjunction with the user. I found this step actually really helpful in understanding what features and pages were really required, and later how to organise the features in a natural way.
 
@@ -35,9 +35,9 @@ The invite system is email dependent, and the details of the invited user are on
 
 The wedding page is where the majority of the functionality of the site is. It shows the wishes that have been claimed, and allows you to search through the wishes by name.
 
-Any user can 'claim' wishes, thereby removing them from the pool of wishes to be claimed. The gift(s) that they claim appear at the top of the wedding gift list, and any other gifts that are claimed will be listed at the bottom of the wedding screen.
-
-Admins will be able to see who claimed the gifts.
+Any user can 'claim' wishes, thereby removing them from the pool of wishes to be claimed. The gift(s) that they claim appear at the top of the wedding gift list, and any other gifts that are claimed will be listed at the bottom of the wedding screen. Admins will be able to see who claimed the gifts.
 
 
-the initial idea, the planning (wireframes/trello), a project demo, key pain points, key wins (potentially show off some code) and then overall thoughts and what you would do if you had another couple of days.
+##Closing Comments
+
+There were quite a few ideas that I started with for the site, but after designing the wireframing, testing the ease of use and trying out different styles, a lot of functionality and flashy design features were taken out in favour of a more lean site with much more focus on the usability of the site.
