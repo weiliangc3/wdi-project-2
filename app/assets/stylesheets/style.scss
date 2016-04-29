@@ -118,6 +118,9 @@ body{
         position: relative;
         text-align: right;
         p {
+          margin-left: auto;
+          text-align: right;
+          max-width: 300px;
           color: #121212;
           padding-bottom: 2em;
         }
