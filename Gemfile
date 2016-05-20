@@ -8,6 +8,7 @@ gem 'carrierwave', '0.10.0'
 gem 'rmagick'
 gem 'ransack'
 gem 'acts_as_commentable', '4.0.2'
+gem 'rails_12factor', group: :production
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
