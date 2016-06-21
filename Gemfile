@@ -9,6 +9,7 @@ gem 'rmagick'
 gem 'ransack'
 gem 'acts_as_commentable', '4.0.2'
 gem 'rails_12factor', group: :production
+gem 'fog', '1.29.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,5 +51,3 @@ end
 
 
 gem "letter_opener", :group => :development
-
-gem 'rails_12factor', group: :production
