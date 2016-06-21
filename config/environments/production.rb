@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  config.action_mailer.default_url_options = { host: ENV['SENDGRID_DOMAIN'] }
+  config.action_mailer.default_url_options = { :host => ENV['SENDGRID_DOMAIN'] }
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",
     :port           => "25",
